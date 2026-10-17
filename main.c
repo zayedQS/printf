@@ -3,29 +3,29 @@
 
 int	main(void)
 {
-	int	len1;
-	int	len2;
-	void	*ptr = &len1;
-
-	printf("=== Testing %c and %s ===\n", '%', '%');
-	len1 = ft_printf("ft_printf: %c | %s\n", 'A', "Hello 42");
-	len2 = printf("   printf: %c | %s\n", 'A', "Hello 42");
-	printf("Return: ft=%d, orig=%d\n\n", len1, len2);
-
-	printf("=== Testing %d, %i, %u ===\n", '%', '%');
-	len1 = ft_printf("ft_printf: %d | %i | %u\n", -2147483648, 42, 4294967295U);
-	len2 = printf("   printf: %d | %i | %u\n", -2147483648, 42, 4294967295U);
-	printf("Return: ft=%d, orig=%d\n\n", len1, len2);
-
-	printf("=== Testing %x, %X, %p ===\n", '%', '%');
-	len1 = ft_printf("ft_printf: %x | %X | %p\n", 255, 255, ptr);
-	len2 = printf("   printf: %x | %X | %p\n", 255, 255, ptr);
-	printf("Return: ft=%d, orig=%d\n\n", len1, len2);
-
-	printf("=== Testing NULL Pointer & String ===\n");
-	len1 = ft_printf("ft_printf: %p | %s\n", NULL, (char *)NULL);
-	len2 = printf("   printf: %p | %s\n", NULL, (char *)NULL);
-	printf("Return: ft=%d, orig=%d\n", len1, len2);
-
+	int len1 = 0;
+	int len2 = 0;
+	int x = 42;
+	char	*str_null = NULL;
+	len1 += ft_printf("%c | %s | %s\n", 'a', "asd", str_null);
+	len2 += printf("%c | %s | %s\n", 'a', "asd", str_null);
+	//printf("%d\n%d\n",len1, len2 );
+	len1 += ft_printf("%d | %i | %d\n" , 0, (int)-2147483648, 2147483647);
+	len2 += printf("%d | %i | %d\n" , 0, (int)-2147483648, 2147483647);
+	//printf("%d\n%d\n",len1, len2 );
+	len1 += ft_printf("%u | %u\n", 0, 4294967295U);
+	len2 += printf("%u | %u\n", 0, 4294967295U);
+	//printf("%d\n%d\n",len1, len2 );
+	len1 += ft_printf("%x | %X\n", 255, 255);
+	len2 += printf("%x | %X\n", 255, 255);
+	//printf("%d\n%d\n",len1, len2 );
+	len1 += ft_printf("%p | %p\n", &x, str_null);
+	len2 += printf("%p | %p\n", &x, str_null);
+	//printf("%d\n%d\n",len1, len2 );
+	len1 += ft_printf("%%\n");
+	len2 += printf("%%\n");
+	//printf("%d\n%d\n",len1, len2 );
+	len1 += ft_printf("%a\n");
+	printf("%d\n%d\n",len1, len2 );
 	return (0);
 }
