@@ -24,6 +24,6 @@ int	ft_putptr(uintptr_t ptr)
 	if (!ptr)
 		return (ft_putstr("(nil)"));
 	count += ft_putstr("0x");
-	count += ft_puthex(ptr, 'x'); // استدعاء مباشر لـ ft_puthex باستخدام الأحرف الصغيرة
+	count += ft_puthex(ptr, 'x');
 	return (count);
 }
